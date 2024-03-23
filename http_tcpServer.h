@@ -12,6 +12,7 @@ class TcpServer {
   public:
     TcpServer(std::string ip_address, int port);
     ~TcpServer();
+    void startListen();
 
   private:
     std::string m_ip_address;
@@ -25,7 +26,9 @@ class TcpServer {
 
     int startServer();
     void closeServer();
+    void acceptConnection(int &new_socket);
     std::string buildResponse();
+    void sendResponse();
 };
 } // namespace http
 
